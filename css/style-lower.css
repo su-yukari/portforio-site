@@ -1,0 +1,559 @@
+@charset "UTF-8";
+
+body,
+html {
+  overflow-x: hidden;
+}
+
+/* ------------------------------
+   LOWER PAGE COMMON
+------------------------------ */
+p {
+  margin-bottom: 25px;
+}
+
+header {
+  z-index: 996;
+}
+
+h1 {
+  left: 15px;
+}
+
+.logo-fixed {
+  height: 45px;
+}
+
+h1 img {
+  width: 55px;
+}
+
+article.title.parallax {
+  padding-left: 20px;
+}
+
+article h2 {
+  padding-top: 180px;
+  text-align: left;
+  font-size: 27px;
+  line-height: 1;
+}
+
+
+article h2.h2-archive {
+  padding-top: 0;
+  margin-top: 100px;
+  font-size: 23px;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+h2 small {
+  font-size: 15px;
+  color: #868686;
+  letter-spacing: 1.7px;
+}
+
+
+h3 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+header {
+  inset: 0;
+  position: fixed;
+  height: 50px;
+  /* background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px 20px 15px rgba(255, 255, 255, 0.75); */
+}
+
+.logo-fixed {
+  background-color: transparent;
+  box-shadow: none;
+  z-index: 996;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: auto;
+}
+
+nav.navi-inner {
+  top: 60px;
+  padding: 0;
+}
+
+main {
+  top: 0;
+  padding-top: 0;
+}
+
+article {
+  display: inline;
+}
+
+section {
+  width: 95%;
+  margin: 0 auto;
+  margin: 50px auto 100px;
+}
+
+
+
+/* ------------------------------
+   FIXED LOGO
+------------------------------ */
+/* article.parallax h2 {
+  padding-top: 90px;
+} */
+
+/* ------------------------------
+   PARALLAX
+------------------------------ */
+
+
+article.parallax {
+  background-attachment: scroll;
+  /* ←パララックスOFF */
+  min-height: 60vh;
+  /* ←SPは短めにすると収まりが良い */
+  padding: 120px 0 40px;
+  background-position: center top;
+
+}
+
+
+/* SP 2x */
+
+article.parallax.bg-lornico {
+  background-image: url("../works/images/lornico/works-main_lornico@880.jpg");
+}
+
+article.parallax.bg-portfolio {
+  background-image: url("../works/images/portfolio/works-main_portfolio@880.jpg");
+}
+
+article.parallax.bg-rollinz {
+  background-image: url("../works/images/rollinz/works-main_rollinz@880.jpg");
+}
+
+article.parallax.bg-onemile {
+  background-image: url("../works/images/onemile/works-main_onemile@880.jpg");
+}
+
+article.parallax.bg-pon {
+  background-image: url("../works/images/pon/works-main_pon@880.jpg");
+}
+
+article.parallax.bg-syowa {
+  background-image: url("../works/images/syowa/works-main_syowa@880.jpg");
+}
+
+
+/* SP 3x */
+@media screen and (max-width: 704px) and (-webkit-min-device-pixel-ratio: 3),
+screen and (max-width: 704px) and (min-resolution: 288dpi) {
+
+  article.parallax.bg-lornico {
+    background-image: url("../works/images/lornico/works-main_lornico@1320.jpg");
+  }
+
+  article.parallax.bg-portfolio {
+    background-image: url("../works/images/portfolio/works-main_portfolio@1320.jpg");
+  }
+
+  article.parallax.bg-rollinz {
+    background-image: url("../works/images/rollinz/works-main_rollinz@1320.jpg");
+  }
+
+  article.parallax.bg-onemile {
+    background-image: url("../works/images/onemile/works-main_onemile@1320.jpg");
+  }
+
+  article.parallax.bg-pon {
+    background-image: url("../works/images/pon/works-main_pon@1320.jpg");
+  }
+
+  article.parallax.bg-syowa {
+    background-image: url("../works/images/syowa/works-main_syowa@1320.jpg");
+  }
+}
+
+
+
+article.parallax.works-top {
+  padding-top: 180px;
+}
+
+
+
+/* ------------------------------
+   DETAIL
+------------------------------ */
+.explanation {
+  margin: 0 0 90px;
+}
+
+.detail {
+  display: block;
+}
+
+
+.detail>div {
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+img.qr {
+  border-radius: 5px;
+  border: solid 1px #dbdbdb;
+  width: 100px;
+}
+
+.detail ul li {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+
+.detail h3 {
+  text-align: left;
+  position: relative;
+  display: inline-block;
+}
+
+.detail h3 span {
+  position: relative;
+  z-index: 2;
+}
+
+.detail h3::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -11px;
+  width: 25px;
+  height: 25px;
+  background-color: #ececec;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.detail img {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.detail img.sp-w100 {
+  width: 100%;
+}
+.detail img.sp-w80 {
+  width: 80%;
+}
+
+.detail img.sp-w70 {
+  width: 70%;
+}
+
+.detail img.sp-w50 {
+  width: 50%;
+}
+
+.detail img.tb-w80 {
+  width: 100%;
+  max-width: 100%;
+}
+
+.capture img {
+  width: 85%;
+}
+
+.detail img.img_flow {
+  width: 70%;
+  max-width: 185px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.detail img.w80 {
+  width: 80%;
+  max-width: 80%;
+}
+
+.detail img.w100 {
+  width: 100%;
+  max-width: 100%;
+}
+
+
+/* ------------------------------
+   footer
+------------------------------ */
+/* footer nav{
+  z-index: 900;
+  position: relative;
+
+  position: static;
+  z-index: auto;
+} */
+
+
+
+/* ------------------------------
+   Archive
+------------------------------ */
+
+/***************************** tb Profile */
+p.fadein .fadein-bottom .scrollin {
+  margin: 0 20%;
+
+
+}
+
+.prof-flexBox img {}
+
+.prof-flexBox {
+  /* width: 90%; */
+}
+
+.prof-flexBox picture img {
+  margin: 50px auto 20px;
+  /* width: 55%; */
+}
+
+.prof-txt {
+  margin: 30px auto;
+}
+
+
+
+
+/* tb用のCSS ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+@media screen and (min-width:705px) {
+  main {
+    padding-top: 0;
+  }
+
+  .logo-fixed {
+    height: 40px;
+  }
+
+  h1 img {
+    width: 80px;
+  }
+
+  article.title.parallax {
+    padding-left: 60px;
+  }
+
+
+  article.parallax {
+    background-attachment: fixed;
+    padding: 120px 0 150px;
+    min-height: 80vh;
+    max-height: 90vh;
+    background-position: center top;
+  }
+
+  article.parallax.bg-lornico {
+    background-image: url("../works/images/lornico/works-main_lornico@2500.jpg");
+  }
+
+  article.parallax.bg-portfolio {
+    background-image: url("../works/images/portfolio/works-main_portfolio@2500.jpg");
+  }
+
+  article.parallax.bg-rollinz {
+    background-image: url("../works/images/rollinz/works-main_rollinz@2500.jpg");
+  }
+
+  article.parallax.bg-onemile {
+    background-image: url("../works/images/onemile/works-main_onemile@2500.jpg");
+  }
+
+  article.parallax.bg-pon {
+    background-image: url("../works/images/pon/works-main_pon@2500.jpg");
+  }
+
+  article.parallax.bg-syowa {
+    background-image: url("../works/images/syowa/works-main_syowa@2500.jpg");
+  }
+
+  nav.navi-inner {
+    right: -1060px;
+  }
+
+  nav.navi-inner ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    font-family: serif;
+    z-index: 1005;
+    /* display: block; */
+  }
+
+  nav.navi-inner ul li {
+    font-size: 18px;
+    margin: 0 auto 60px;
+    text-align: center;
+    /* opacity: 1; */
+    padding-left: 0;
+  }
+
+
+
+  /* img.qr{
+  width: 150px;
+} */
+
+
+  section {
+    width: 80%;
+  }
+
+  section.w90 {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .detail {
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 20px; */
+  }
+
+
+  .detail>section {
+    padding: 20px;
+    width: calc(50% - 10px);
+    /* 2カラム（gapが20pxの時の調整） */
+    margin: 20px auto;
+    /* flex: 1; */
+  }
+
+  /* 左カラム　*/
+  .multi-block .item:nth-child(odd) {
+    margin-left: 0;
+    margin-right: 0px;
+    /* A→B間のスペース */
+  }
+
+  /* 右カラム　*/
+  .multi-block .item:nth-child(even) {
+    margin-left: 0;
+    /* Bの左はすでにAで作ってるので0 */
+    margin-right: 0;
+  }
+
+
+  .detail-1clm {
+    flex-basis: 100%;
+    width: 100%;
+    /* 念のため */
+    margin: 20px 0;
+    /* 2カラムの間にドンと入る */
+  }
+
+
+
+  .detail img {
+    width: 70%;
+    max-width: 600px;
+  }
+
+
+
+
+
+  .capture img {
+    width: 80%;
+    max-width: 800px;
+  }
+
+  .capture .detail-main img {
+    width: 95%;
+    max-width: 900px;
+  }
+
+
+
+  .detail img.sp-w50 {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+
+  article h2.h2-archive {
+    margin-top: 5px;
+  }
+
+  /***************************** tb Profile */
+
+
+  .prof-flexBox {
+    display: flex;
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .prof-flexBox picture {
+    width: 40%;
+    max-width: 200px;
+  }
+
+  .prof-flexBox picture img {
+    width: 100%;
+  }
+
+  .prof-txt {
+    width: 60%;
+    max-width: 500px;
+    margin: 5px 10px 30px 50px;
+  }
+
+
+  .detail img.img_flow {
+    width: 100%;
+    max-width: 1100px;
+  }
+
+
+
+
+.detail img.tb-w80 {
+  width: 80%;
+  max-width: 80%;
+}
+
+}
+
+
+
+
+
+
+
+
+/* PC用のCSS ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+@media screen and (min-width:1060px) {
+
+  nav.navi-inner {
+    right: -2000px;
+  }
+
+
+  article.title.parallax {
+    padding-left: 120px;
+  }
+
+
+}

@@ -1,0 +1,939 @@
+@charset "UTF-8";
+
+
+
+
+
+
+/* ------------------------------
+   FIRST VIEW
+------------------------------ */
+header {
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  /* background: #f6f6f6; */
+}
+
+h2 {
+  margin: 0 auto 35px;
+  font-size: 22px;
+  font-family: serif;
+  text-align: center;
+  line-height: 1;
+  letter-spacing: 0.09em;
+}
+
+h2 small {
+  font-size: 75%;
+  color: #c5c5c5;
+  letter-spacing: 0.07em;
+}
+
+
+
+/* ------------------------------
+   SCROLL MARK
+------------------------------ */
+.container {
+  height: 20px;
+  background-color: #979797;
+}
+
+.scroll-mark {
+  margin-top: 16px;
+  font-size: 15px;
+  opacity: 0.7;
+}
+
+.scrollbar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1px;
+  margin-bottom: 85px;
+  /* scrollの一番上下の位置 */
+}
+
+
+/* circle animation */
+.scrollbar::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background: #474747;
+  border-radius: 50%;
+
+  /* 初期状態は必ず非表示＋小さく */
+  opacity: 0;
+  transform: scale(0);
+
+  /* アニメーションは1本に統合 */
+  animation: circleall 3s ease-in-out infinite;
+  animation-fill-mode: both;
+}
+
+@keyframes circleall {
+
+  /* スタート位置：高い位置、透明、小さい */
+  0% {
+    /* bottom: 255px; */
+    bottom: 500px;
+    /* 雨っぽい */
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  /* 落ち始めながら徐々に見える */
+  10% {
+    opacity: 0.4;
+  }
+
+
+  /* 中盤：普通サイズ＋不透明 */
+  75% {
+    opacity: 1;
+    transform: scale(0.5);
+  }
+
+
+  /* 落ちた後：大きく膨らんで消える */
+  96% {
+    bottom: 65px;
+    opacity: 0.3;
+    transform: scale(1);
+  }
+
+  /* 97% {
+    bottom: 60px;
+    transform: scale(2);
+  } */
+
+  99% {
+    transform: scale(2.5);
+  }
+
+
+  /* 完全に消える（次のループまで隠す） */
+  100% {
+    bottom: 60px;
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+
+/* ------------------------------
+   ANCHOR FIX
+------------------------------ */
+#Works,
+#Profile {
+  margin-top: -100px;
+  padding-top: 100px;
+}
+
+#Others {
+  /* margin-top: 100px; */
+  padding-top: 100px;
+}
+
+
+#Contact {
+  padding-top: 200px;
+  
+}
+
+
+
+/* ------------------------------
+   MAIN CONTENTS
+------------------------------ */
+main {
+  position: relative;
+}
+
+article {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 180px 0 180px;
+}
+
+h3 {
+  position: relative;
+  display: inline-block;
+  /* 文字幅に合わせる */
+}
+
+h3 span {
+  position: relative;
+  z-index: 50;
+}
+
+h3::after {
+  content: "";
+  position: absolute;
+  top: 76%;
+  right: 25%;
+  width: 35px;
+  height: 35px;
+  background-color: #d0d0d0;
+  border: 1px solid #e3e3e3;
+  border-radius: 50%;
+  z-index: 49;
+  animation: h3pulse 2s ease-in-out infinite;
+}
+
+@keyframes h3pulse {
+  0% {
+    transform: translate(0, 0) scale(0.6);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.9;
+  }
+
+  90% {
+    transform: translate(0, 0) scale(1.1);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1.5);
+    opacity: 0;
+  }
+}
+
+h3#Profile {
+  margin-bottom: 110px;
+}
+
+h3#Profile::after {
+  border: 0.7px solid #727272;
+}
+
+
+#Contact h3::after {
+  top: 1%;
+}
+
+h4 {
+  font-size: 17px;
+}
+
+/* ------------------------------
+   PARALLAX
+------------------------------ */
+.parallax.bg-01 {
+  background-image: url("../images/bg@880.jpg");
+}
+
+
+
+/* SP 3x */
+
+/* SP 3x */
+@media screen and (max-width: 704px) and (-webkit-min-device-pixel-ratio: 3),
+screen and (max-width: 704px) and (min-resolution: 288dpi) {
+  .parallax.bg-01 {
+    background-image: url("../images/bg@1320.jpg");
+  }
+}
+
+
+/* .parallax.bg-01 {
+  background:url(../images/body-background.jpeg) repeat-y center top;
+  background-size: 100%;
+  animation: moveStars 360s linear infinite;
+  }
+
+@keyframes moveStars{
+  from{
+    background-position: center 2000px;
+  }
+  to{
+    background-position: center 0;
+  }
+} */
+
+
+.parallax2.bg-02 {
+  background-image: url("../images/bg1.jpg");
+}
+
+article.parallax.works-top {
+  padding-top: 180px;
+}
+
+
+/* ------------------------------
+   TAB (WORKS)
+------------------------------ */
+h3#Works {
+  margin-bottom: 90px;
+}
+
+ul.tab {
+  width: 100%;
+  margin: 0 auto 50px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  font-size: 13.5px;
+  font-family: serif;
+  letter-spacing: 0.03em;
+}
+
+ul.tab li {
+  padding: 0 10px;
+}
+
+ul.tab li a {
+  display: block;
+  padding: 5px 0 5px;
+  text-decoration: none;
+  color: #a8a8a8;
+  transition: 0.3s;
+  position: relative;
+}
+
+ul.tab li a:hover,
+ul.tab li.active a {
+  color: #333;
+}
+
+/* underline */
+ul.tab li a::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: #898989;
+  transform: scale(0, 1);
+  transition: transform .3s;
+}
+
+ul.tab li a:hover::after,
+ul.tab li.active a::after {
+  transform: scale(1, 1);
+}
+
+/* tab area */
+.tab_area {
+  display: none;
+  opacity: 0;
+  margin: 0 0 20px;
+}
+
+.tab_area.is-active {
+  display: block;
+  animation: displayAnime 1s forwards;
+}
+
+@keyframes displayAnime {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.tab_area p {
+  margin: 0 0 40px 0;
+  font-size: 15px;
+}
+
+/* .tab_area p:last-child {
+  margin: 0;
+} */
+
+/* section#tab3.is-active>.archive{
+  display: none;
+} */
+
+/* ------------------------------
+   GALLERY
+------------------------------ */
+.gallery {
+  width: 85%;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 70px 10px;
+  grid-template-columns: 1fr;
+}
+
+.gallery-box {
+  position: relative;
+  margin: 0 auto 5px;
+  width: 85%;
+  max-width: 350px;
+  border-radius: 5px;
+}
+
+.gallery-box figure {
+  margin: 0 auto 10px;
+  border-radius: 5px;
+}
+
+.gallery-box img {
+  /* width: 85%;
+  max-width: 350px;
+  border-radius: 5px; */
+  border-radius: 5px;
+  transition: .4s;
+}
+
+.gallery-box:hover img {
+  transform: scale(1.02);
+  filter: blur(0.7px);
+  opacity: 0.7;
+}
+
+.gallery-box figure:hover {
+  transform: scale(1);
+}
+
+/* .gallery-box:hover {
+  background-color: #333;
+} */
+ .gallery-box:hover {
+  transform: scale(1.02);
+  transition: .4s;
+}
+
+.gallery-box h5 {
+  margin: 0 auto 5px;
+  padding: 0;
+  color: #3d3d3d;
+}
+
+.gallery-box:hover h5 {
+  opacity: 1;
+}
+
+.gallery section p {
+  margin: 0 auto 10px;
+  font-size: 14px;
+  color: #979797;
+}
+
+
+/* ------------------------------
+   PROFILE
+------------------------------ */
+.prof-flexBox {
+  width: 90%;
+  max-width: 300px;
+}
+
+/* .prof-flexBox picture {
+  width: 150px;
+} */
+
+.prof-flexBox picture img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.prof-txt {
+  margin: 30px auto;
+}
+
+
+/* .prof-flexBox h4 {
+  text-align: left;
+  position: relative;
+  display: inline-block;
+}
+
+.prof-flexBox h4 span {
+  position: relative;
+  z-index: 2;
+}
+
+.prof-flexBox h4::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -11px;
+  width: 23px;
+  height: 23px;
+  background-color: #cecece;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+} */
+
+
+/* ------------------------------
+   OTHERS (slick)
+------------------------------ */
+.slider-box {
+  width: 80%;
+  margin: 60px auto 200px;
+}
+
+
+.slider-box figure {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.slider-box figure img {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* slick 調整 */
+.slick-prev {
+  left: -10px;
+}
+
+.slick-next {
+  right: -10px;
+}
+
+.slick-dots {
+  bottom: -55px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.slick-dots li button:before {
+  left: 22px;
+}
+
+@media screen and (min-width:1300px) {
+  .slick-dots li button:before {
+    left: 32px;
+  }
+}
+
+@media screen and (min-width:1620px) {
+  .slick-dots li button:before {
+    left: 45px;
+  }
+}
+
+@media screen and (min-width:1820px) {
+  .slick-dots li button:before {
+    left: 49px;
+  }
+}
+
+
+@media screen and (max-width:400px) {
+  .slick-dots li button:before {
+    left: 13px;
+  }
+}
+
+.slick-dots li {
+  margin: 0 10px;
+}
+
+@media screen and (max-width:400px) {
+  .slick-dots li {
+    margin: 0 7px;
+  }
+}
+
+.slick-dots li button:before {
+  opacity: .20;
+  font-size: 12px;
+  color: #888888;
+}
+
+@media screen and (max-width:400px) {
+  .slick-dots li button:before {
+    font-size: 9px;
+  }
+}
+
+.slick-dots li.slick-active button:before {
+  font-size: 18px;
+}
+
+@media screen and (max-width:400px) {
+  .slick-dots li.slick-active button:before {
+    font-size: 13px;
+  }
+}
+
+
+.gallery_ots {
+  width: 90%;
+  grid-template-columns: 2fr 2fr;
+}
+
+#tab1,
+#tab2,
+#tab3 {
+  margin-bottom: 240px
+}
+
+
+/* ------------------------------
+   CONTACT 
+------------------------------ */
+
+article#Contact{
+  margin-left:20px;
+  margin-right: 20px;
+}
+article#Contact small{
+  font-size: 11px;
+  color: #959595;
+}
+
+
+
+
+/* sp用のCSS ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+
+@media screen and (min-width:440px) {}
+
+@media screen and (max-width:599px) {}
+
+
+
+/* tb用のCSS ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+@media screen and (min-width:705px) {
+
+  #Works,
+  #Profile {
+    margin-top: -140px;
+    padding-top: 140px;
+  }
+
+  #Others {
+    margin-top: -140px;
+    padding-top: 140px;
+  }
+
+  #Contact {
+    padding-top: 130px;
+    margin-top: 0;
+  }
+
+  h2 {
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+
+  h2 small {
+    font-size: 65%;
+  }
+
+  h3 {
+    font-size: 23px;
+  }
+
+  h3::after {
+    top: 81%;
+    right: 27%;
+  }
+
+  #Contact h3::after {
+    top: 8%;
+  }
+
+
+
+  .btnHamburger {
+    display: none;
+  }
+
+  .sp_Hamburger_logo {
+    display: none;
+  }
+
+  .sp_Hamburger_hr {
+    display: none;
+  }
+
+  .logo-fixed {
+    box-shadow: 20px 33px 37px 15px rgba(255, 255, 255, 0.85);
+  }
+
+  /* tb ナビ */
+  nav.navi-inner {
+    position: sticky;
+    top: 45px;
+    z-index: 997;
+    padding: 5px;
+    opacity: 1;
+    transition: 0.5s;
+  }
+
+  nav.navi-inner ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    /* gap: 25px; */
+    gap: 20px;
+    padding: 0;
+    margin: 5px 0;
+    font-family: serif;
+    letter-spacing: 0.07em;
+    color: #a1a1a1;
+  }
+
+  nav.navi-inner ul li {
+    position: relative;
+    /* 擬似要素の基準 */
+    font-size: 16px;
+    /* margin: 0 5px; */
+    margin: 0;
+    /* padding-left: 36px; ドット分の余白 */
+    padding-left: 10px;
+  }
+
+  /* ドットを ::before で作る */
+  nav.navi-inner ul li::before {
+    content: "";
+    position: absolute;
+    /* left: 0; ドット左右*/
+    left: -8px;
+    top: 10px;
+    /* ←ここでドットを 上げる／下げる */
+    width: 5px;
+    height: 5px;
+    background: #dcdcdc;
+    border-radius: 50%;
+  }
+
+  nav.navi-inner ul li:first-child::before {
+    content: none;
+  }
+
+  nav.navi-inner ul li:first-child {
+    padding-left: 10px;
+  }
+
+  nav.navi-inner a {
+    text-decoration: none;
+    color: #333;
+    opacity: 0.15;
+    transition: opacity 1.5s ease;
+    /* ← これを入れると “ふわっ” と変わる */
+  }
+
+  /******************************** tb WORKS */
+  ul.tab {
+    font-size: 15px;
+    letter-spacing: 0.06em;
+    margin: 0 auto 65px;
+  }
+
+  ul.tab li {
+    padding: 0 20px;
+  }
+
+  article.parallax.works-top {
+    /* height: 170vh; */
+    padding-top: 230px;
+  }
+
+
+  .parallax.bg-01 {
+    background-image: url("../images/bg@2500.jpg");
+  }
+
+
+  .gallery {
+    max-width: 720px;
+    margin: 0 auto;
+    grid-gap: 70px 10px;
+    grid-template-columns: 2fr 2fr;
+  }
+
+  .gallery-box {
+    background-color: #838383;
+  }
+
+  .gallery-box h5 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    opacity: 0;
+    transition: 0.4s;
+    font-size: 22px;
+  }
+
+  .gallery-box:hover img {
+    opacity: 0.3;
+  }
+
+  .gallery section p {
+    color: #494949;
+  }
+
+
+
+  /***************************** tb Profile */
+
+  .prof-flexBox {
+    display: flex;
+    width: 70%;
+    max-width: 700px;
+  }
+
+  .prof-flexBox picture {
+    width: 40%;
+    max-width: 200px;
+  }
+
+  .prof-flexBox picture img {
+    width: 100%;
+    max-width: 180px;
+  }
+
+  .prof-txt {
+    width: 60%;
+    max-width: 500px;
+    margin: 5px 10px 30px 50px;
+  }
+
+  /***************************** tb Others */
+
+  .slick-prev {
+    left: -40px;
+  }
+
+  .slick-next {
+    right: -40px;
+  }
+
+  .gallery_ots {
+    grid-template-columns: 4fr 4fr 4fr 4fr;
+  }
+}
+
+/* PC用のCSS ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+@media screen and (min-width:1060px) {
+
+  .scrollbar {
+    margin-bottom: 295px;
+    /* scrollの一番上下の位置 */
+  }
+
+  /* circle animation */
+  .scrollbar::before {
+    /* content: "";
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background: #474747;
+  border-radius: 50%;
+  animation: circlemove 3s ease-in-out infinite,
+    cirlemovehide 3s ease-out infinite; */
+  }
+
+  @keyframes circlemove {
+
+    /* -% { bottom:-px; } circleの落ちる長さ*/
+    0% {
+      bottom: 295px;
+    }
+
+    88% {
+      bottom: 0;
+    }
+
+    100% {
+      bottom: 0;
+    }
+  }
+
+
+
+  /* .gallery-box img {
+    max-width: 300px;
+  } */
+
+  .gallery {
+    max-width: 1150px;
+    margin: 0 auto;
+    grid-gap: 70px 10px;
+    /* grid-template-columns: 3fr 3fr 3fr; */
+  }
+
+  .slider-box {
+    max-width: 1200px;
+  }
+
+}
+
+
+/* scrollbar 高さ用のCSS ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■ */
+@media screen and (min-height: 646px) {
+  .scrollbar {
+    margin-bottom: 50px;
+  }
+}
+
+
+/* 高さ 645px 以下 */
+@media screen and (max-height: 645px) {
+  .scrollbar {
+    margin-bottom: 30px;
+  }
+}
+
+/* 高さ 570px 以下 */
+@media screen and (max-height: 560px) {
+  .scrollbar {
+    margin-bottom: 20px;
+  }
+}
+
+/* 高さ 475px 以下 */
+@media screen and (max-height: 475px) {
+
+  /* .scrollbar {
+    margin-bottom: 0px;
+  } */
+  @keyframes circlemove {
+
+    /* -% { bottom:-px; } circleの落ちる長さ*/
+    0% {
+      bottom: 145px;
+    }
+  }
+}
+
+/* 高さ 425px 以下 */
+/* @media screen and (max-height: 425px) {
+  .scrollbar {
+    margin-bottom: 20px;
+  }
+
+  @keyframes circlemove {
+    0% {
+      bottom: 145px;
+    }
+  }
+} */
